@@ -6,7 +6,7 @@ WORKDIR /root
 
 RUN set -xe \
     && apk add -U python3 \
-    && pip install dnspython docker \
+    && pip3.6 install dnspython docker \
     && rm -rf /var/cache/apk/*
 
 COPY ./docker-swarm-dns.py /docker-swarm-dns.py
