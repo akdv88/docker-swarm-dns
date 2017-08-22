@@ -12,7 +12,7 @@ import docker, \
 swnodes = ['192.168.15.201','192.168.15.202','192.168.15.203','192.168.15.204','192.168.15.205']
 dnservers = {'master':{'ip':'192.168.2.6','key':'EMtUbnXU3as1Eczq2bVZ8g=='},'slave':{'ip':'192.168.2.7','key':'ctWc6TO3tD9YMV1QYgh9Jg=='}}
 domain = 'subsident.docker.'
-ttl = int(os.environ['UPDATE'])
+ttl = int(os.environ['UPDATE_FREQ'])
 
 def docker_query():
     conn = docker.from_env()
