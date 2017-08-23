@@ -13,4 +13,4 @@ COPY ./docker-swarm-dns.py /root/docker-swarm-dns.py
 
 RUN ["chmod", "+x", "/root/docker-swarm-dns.py"]
 
-ENTRYPOINT ["/root/docker-swarm-dns.py"]
+ENTRYPOINT ["/root/docker-swarm-ddns.py"]
