@@ -1,6 +1,7 @@
 from alpine
 
 ENV UPDATE_FREQ=15
+ENV PYTHONUNBUFFERED=0
 
 WORKDIR /root
 
