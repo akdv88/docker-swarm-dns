@@ -1,7 +1,8 @@
 #!/usr/bin/env python3.6
 
 from time import sleep
-import docker, \
+import argparse, \
+       docker, \
        dns.resolver, \
        dns.query, \
        dns.tsigkeyring, \
@@ -9,10 +10,17 @@ import docker, \
        os, \
        sys
 
-swnodes = ['192.168.15.201','192.168.15.202','192.168.15.203','192.168.15.204','192.168.15.205']
-dnservers = {'master':{'ip':'192.168.2.6','key':'EMtUbnXU3as1Eczq2bVZ8g=='},'slave':{'ip':'192.168.2.7','key':'ctWc6TO3tD9YMV1QYgh9Jg=='}}
-domain = 'subsident.docker.'
-ttl = int(os.environ['UPDATE_FREQ'])
+parser = argparse.ArgumentParser()
+parser.add_argument("-s",help="list of ip address[es] of your swarm nodes",required=True)
+parser.add_argument("-n",help="your dnserver[s] configuration. Format: {'name':{'ip':'youripaddress','key':'yourupdatekey}}",required=True)
+parser.add_argument("-d",help="your domain name (example.)",required=True)
+parser.add_argument("-u",help="update frequency in seconds",required=True)
+args = parser.parse_args()
+
+swnodes = args.s
+dnservers = args.n
+domain = args.d
+ttl = args.u
 
 def docker_query():
     conn = docker.from_env()
