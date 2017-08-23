@@ -11,14 +11,14 @@ import argparse, \
        sys
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-s",help="list of ip address[es] of your swarm nodes",required=True)
-parser.add_argument("-n",help="your dnserver[s] configuration. Format: {'name':{'ip':'youripaddress','key':'yourupdatekey}}",required=True)
+parser.add_argument("-s",help="list of ip address[es] of your swarm nodes. Format: ipaddress,..",required=True)
+parser.add_argument("-n",help="your dnserver[s] configuration. Format: \"{'name':{'ip':'youripaddress','key':'yourupdatekey}}\"",required=True)
 parser.add_argument("-d",help="your domain name (example.)",required=True)
-parser.add_argument("-u",help="update frequency in seconds",required=True)
+parser.add_argument("-u",help="update frequency in seconds",type=int,required=True)
 args = parser.parse_args()
 
-swnodes = args.s
-dnservers = args.n
+swnodes = args.s.split(',')
+dnservers = ast.literal_eval(args.n)
 domain = args.d
 ttl = args.u
 
