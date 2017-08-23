@@ -2,6 +2,7 @@
 
 from time import sleep
 import argparse, \
+       ast, \
        docker, \
        dns.resolver, \
        dns.query, \
