@@ -9,7 +9,7 @@ RUN set -xe \
     && pip3.6 install dnspython docker \
     && rm -rf /var/cache/apk/*
 
-COPY ./docker-swarm-dns.py /root/docker-swarm-dns.py
+COPY ./docker-swarm-ddns.py /root/docker-swarm-ddns.py
 
 RUN ["chmod", "+x", "/root/docker-swarm-dns.py"]
 
