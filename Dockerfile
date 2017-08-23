@@ -11,8 +11,6 @@ RUN set -xe \
 
 COPY ./docker-swarm-dns.py /root/docker-swarm-dns.py
 
-VOLUME /var/run/docker.sock
-
 RUN ["chmod", "+x", "/root/docker-swarm-dns.py"]
 
 ENTRYPOINT ["/root/docker-swarm-dns.py"]
