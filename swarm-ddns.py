@@ -38,11 +38,11 @@ def docker_query():
             if add:
                 print('ADD', add)
                 for svc in add:
-                    dns_add(svc)
+                    dns_add(svc.replace('_','-').lower())
             if rm:
                 print('DEL', rm)
                 for svc in rm:
-                    dns_remove(svc)
+                    dns_remove(svc.replace('_','-').lower())
         serv_pre = serv_cur
         sleep(ttl)
 
