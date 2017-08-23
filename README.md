@@ -6,8 +6,8 @@ Usage:
 Requred options format:
 -s ipaddress,ipaddress,...
 -n "{'name1':{'ip':'ipaddress1','key':'key1'},'name2':{'ip':'ipaddress2','key':'key2'},...}"
--d, domainname.
--u, updatetime_in_seconds
+-d domainname.
+-u updatetime_in_seconds
 
 as standalone script on master node:
 .swarm-ddns.py -s X -n X -d X -u X
