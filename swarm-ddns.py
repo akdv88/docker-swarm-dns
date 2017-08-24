@@ -30,8 +30,7 @@ def docker_query():
         serv_cur = set()
         for service in conn.services.list():
             if 'add.dns' in service.attrs['Spec']['Labels']:
-                if service.attrs['Spec']['Labels']['add.dns'] == 'true':
-                    serv_cur.add(service.name)
+                serv_cur.add(service.attrs['Spec']['Labels']['add.dns'])
         if serv_pre != serv_cur:
             add = serv_cur.difference(serv_pre)
             rm = serv_pre.difference(serv_cur)
