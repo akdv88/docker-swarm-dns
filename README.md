@@ -15,7 +15,8 @@ Requred options format:
 ### as standalone container:
 docker run -d -v /var/run/docker.sock:/var/run/docker.sock akdv88/swarm-ddns -s X -n X -d X -u X
 
-### as service:
+### as swarmmode service:
 docker service create --constraint 'your_master_nodes label' --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock akdv88/swarm-ddns -s X -n X -d X -u X
-
+### as swarmmode stack
+docker stack deploy -c /your-path/docker-compose.yml swarm-ddns
 #### To enable DDNS update for your service just add label "add.dns=yourname" to it. To remove dns record either simply remove label from service or remove service itself.
