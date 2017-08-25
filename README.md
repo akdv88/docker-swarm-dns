@@ -1,6 +1,6 @@
 #### Simple Python3 script for updating dynamic domain zone with records, based on specified label of each currently running service in docker swarm mode.
 
-## IMPORTANT: Must be run on swarm master nodes.
+### IMPORTANT: Must be run on swarm master nodes.
 
 ## Usage:
 Requred options format:
