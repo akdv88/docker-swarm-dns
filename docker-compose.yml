@@ -1,0 +1,22 @@
+# Compose sample
+# Change command arguments based on your environment before deploying
+version: '3.3'
+
+services:
+  ddns-updater:
+    image: akdv88/swarm-ddns
+    command: -s xxx.xxx.xxx.xxx,xxx.xxx.xxx.xxx -n "{'first':{'ip':'xxx.xxx.xxx.xxx','key':'XXX'},'second':{'ip':'xxx.xxx.xxx.xxx','key':'XXX'}}" -d 'xxx.xxx.' -u X
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role==manager
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+    networks:
+      - your-docker-net
+networks:
+  your-docker-net:
