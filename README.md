@@ -9,7 +9,7 @@
 #### Simple Python3 script for updating dynamic domain zone with records, based on specified label of each currently running service in docker swarm mode.
 
 #### How it works:
-When script initializes for the first time, it retrieves a list of running services with "add.dns" label and then sends DNS Update to your DDNServer based on those labels. After that it starts to listen docker events and all the next updates to DDNS will be performed automatically:
+When script initializes for the first time, it retrieves a list of running services with "add.dns" label and then sends DNS Update to your DDNServer based on those labels. After that it starts to listen docker socket for events and all the next updates to DDNS will be performed automatically:
 * creating/removing service with defined "add.dns" label
 * adding/updating/removing "add.dns" label in service
 
