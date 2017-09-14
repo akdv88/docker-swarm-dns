@@ -70,7 +70,7 @@ def docker_query():
                 dns_remove(svc.replace('_','-').lower())
             except:
                 print("Error: DNS update failed!")
-
+# DDNS Queries
 def dns_add(svc):
     for host, conf in dnservers.items():
         print('Add/Update DNS Record \''+svc+'\' sent to',host,'dnserver ('+conf['ip']+')')
@@ -79,6 +79,7 @@ def dns_add(svc):
                 })
         update = dns.update.Update(domain, keyring=keyring)
         for swip in swnodes:
+            update.absent(svc)
             update.add(svc, 15, 'a', swip)
             resp = dns.query.tcp(update, conf['ip'])
 
@@ -89,6 +90,7 @@ def dns_remove(svc):
                 'rndc-key.' : conf['key']
                 })
         update = dns.update.Update(domain, keyring=keyring)
+        update.present(svc)
         update.delete(svc, 'a')
         resp = dns.query.tcp(update, conf['ip'])
 
