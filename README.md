@@ -8,7 +8,8 @@
 
 #### Simple Python3 script for updating dynamic domain zone with records, based on specified label of each currently running service in docker swarm mode.
 
-### IMPORTANT: Must be run on swarm master nodes in replicated mode (with at least two replicas). 
+### IMPORTANT:
+#### Must be run on swarm master nodes in replicated mode (with at least two replicas). 
 #### This is necessary because some events are strangely distributed among master nodes: some of them are completely invisible on the leader node.
 
 #### How it works:
