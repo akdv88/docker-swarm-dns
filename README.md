@@ -17,9 +17,9 @@ When script initializes for the first time, it retrieves a list of running servi
 ## Usage:
 
 Requred options format:
-* -s ipaddress,ipaddress,...
-* -n "{'name1':{'ip':'ipaddress1','key':'key1'},'name2':{'ip':'ipaddress2','key':'key2'},...}"
-* -d domainname.
+* -s swarmnode1_ipaddress,swarmnode2_ipaddress,...
+* -n "{'ddns1_name':{'ip':'ddns1_ipaddress','key':'ddns1_key'},'ddns2_name':{'ip':'ddns2_ipaddress','key':'ddns2_key'},...}"
+* -d your_domainname.
 
 ### You can run it as a standalone script on master node
 .swarm-ddns.py -s X -n X -d X 
