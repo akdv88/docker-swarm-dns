@@ -10,7 +10,8 @@
 #### Simple Python3 script for updating dynamic domain zone with records, based on specified label of each currently running service in docker swarm mode.
 
 #### How it works:
-When script initializes for the first time, it retrieves a list of running services with "add.dns" label and then sends DNS Update to your DDNServer based on those labels. After that it starts to listen docker socket for events and all the next updates to DDNS will be performed automatically:
+#### If you want your service to be available by DNS, just add "add.dns=your_name" label to it.
+When script will initialize for the first time, it'll retreive a list of running services with "add.dns" label and then sends DNS Update to your DDNServer based on those labels. After that it starts to listen docker socket for events and all the next updates to DDNS will be performed automatically:
 * creating/removing service with defined "add.dns" label
 * adding/updating/removing "add.dns" label in service
 
@@ -33,5 +34,3 @@ docker service create --constraint 'your_master_nodes label' --mount type=bind,s
 
 ### And even as aswarmmode stack
 docker stack deploy -c /your-path/docker-compose.yml swarm-ddns
-
-#### To enable DDNS update for your service just add label "add.dns=yourname" to it. To remove dns record either simply remove label from service or remove service itself.
