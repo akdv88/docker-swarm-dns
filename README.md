@@ -2,7 +2,7 @@
 <p align="center">
 <img src="https://www.tuleap.org/sites/default/files/docker-swarm.jpg" alt="swarm" title="swarm" />
 </p>
-
+[![](https://images.microbadger.com/badges/image/akdv88/swarm-ddns.svg)](https://microbadger.com/images/akdv88/swarm-ddns "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/akdv88/swarm-ddns.svg)](https://microbadger.com/images/akdv88/swarm-ddns "Get your own version badge on microbadger.com")
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/containous/traefik/blob/master/LICENSE.md)
 
@@ -29,6 +29,8 @@ docker run -d -v /var/run/docker.sock:/var/run/docker.sock akdv88/swarm-ddns -s 
 
 ### As a swarmmode service
 docker service create --constraint 'your_master_nodes label' --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock akdv88/swarm-ddns -s X -n X -d X
+
 ### And even as aswarmmode stack
 docker stack deploy -c /your-path/docker-compose.yml swarm-ddns
+
 #### To enable DDNS update for your service just add label "add.dns=yourname" to it. To remove dns record either simply remove label from service or remove service itself.
