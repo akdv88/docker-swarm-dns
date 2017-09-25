@@ -21,7 +21,7 @@ swnodes = args.s.split(',')
 dnservers = ast.literal_eval(args.n)
 domain = args.d
 
-def docker_query():
+def docker_int():
     svc_list = {}
     try:
         conn = docker.from_env()
@@ -123,7 +123,7 @@ def dns_query_status(rcode):
 
 if __name__ == "__main__":
     try:
-        docker_query()
+        docker_int()
     except KeyboardInterrupt:
         pass
     finally:
