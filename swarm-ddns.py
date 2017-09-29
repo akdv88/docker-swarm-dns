@@ -74,14 +74,15 @@ def docker_int():
                 svc_list.pop(svc_name)
         elif event['Type'] == 'service' and event['Action'] == 'remove':
             svc_name = event['Actor']['Attributes']['name']
-            svc = svc_list[svc_name]
-            svc_list.pop(svc_name)
-            print(svc_list)
-            print('\nService/Action:', svc_name+'/'+event['Action'])
-            try:
-                dns_remove(svc.replace('_','-').lower())
-            except:
-                print("...Error: DNS update failed!")
+            if svc_name in svc_list:
+                svc = svc_list[svc_name]
+                svc_list.pop(svc_name)
+                print(svc_list)
+                print('\nService/Action:', svc_name+'/'+event['Action'])
+                try:
+                    dns_remove(svc.replace('_','-').lower())
+                except:
+                    print("...Error: DNS update failed!")
 # DDNS Queries
 def dns_add(svc):
     for host, conf in dnservers.items():
@@ -127,4 +128,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         pass
     finally:
-        print('\nScript soft exit')
+        print('\nScript exited')
