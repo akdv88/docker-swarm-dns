@@ -25,10 +25,14 @@ Requred options format:
 * -d your_domainname.
 
 ### You can run it as a standalone Docker container
-docker run -d -v /var/run/docker.sock:/var/run/docker.sock akdv88/swarm-ddns -s X -n X -d X
-
+```
+$ docker run -d -v /var/run/docker.sock:/var/run/docker.sock akdv88/swarm-ddns -s X -n X -d X
+```
 ### Or as a Docker Swarm Mode service
-docker service create --constraint 'your_master_nodes label' --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock akdv88/swarm-ddns -s X -n X -d X
-
+```
+$ docker service create --constraint 'your_master_nodes label' --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock akdv88/swarm-ddns -s X -n X -d X
+```
 ### And even as Docker Swarm Mode stack
-docker stack deploy -c /your-path/docker-compose.yml swarm-ddns
+```
+$ docker stack deploy -c /your-path/docker-compose.yml swarm-ddns
+```
