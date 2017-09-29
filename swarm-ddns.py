@@ -77,7 +77,6 @@ def docker_int():
             if svc_name in svc_list:
                 svc = svc_list[svc_name]
                 svc_list.pop(svc_name)
-                print(svc_list)
                 print('\nService/Action:', svc_name+'/'+event['Action'])
                 try:
                     dns_remove(svc.replace('_','-').lower())
