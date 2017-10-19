@@ -11,7 +11,7 @@
 
 #### How it works:
 #### If you want your service to be available by DNS, just add "add.dns=your_name" label to it.
-When script will initialize for the first time, it'll retreive a list of running services with "add.dns" label and then will send DNS Update to your DynDNServer based on those labels. After that it'll start to listen docker socket for events and all the next updates to DDNS will be performed automatically:
+When script will initialize for the first time, it'll retreive a list of running services with "add.dns" label and then will send DNS Update to your DynDNServer* based on those labels. After that it'll start to listen docker socket for events and all the next updates to DDNS will be performed automatically:
 * creating/removing service with defined "add.dns" label
 * adding/updating/removing "add.dns" label in service
 
@@ -36,3 +36,4 @@ $ docker service create --constraint 'node.role==manager' --mount type=bind,sour
 ```
 $ docker stack deploy -c /your-path/docker-compose.yml swarm-ddns
 ```
+###### * Tested with Bind9 and NSD DNS servers
