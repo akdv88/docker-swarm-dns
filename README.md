@@ -32,7 +32,7 @@ $ docker run -d -v /var/run/docker.sock:/var/run/docker.sock akdv88/swarm-ddns -
 ```
 $ docker service create --constraint 'node.role==manager' --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock akdv88/swarm-ddns -s X -n X -d X
 ```
-### And even as Docker Swarm Mode stack
+### And even as a Docker Swarm Mode stack
 ```
 $ docker stack deploy -c /your-path/docker-compose.yml swarm-ddns
 ```
