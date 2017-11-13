@@ -23,10 +23,12 @@ domain = args.d
 
 def docker_int():
     svc_list = {}
+    conn = docker.from_env()
     try:
-        conn = docker.from_env()
+        conn.info()
     except:
         print("Error: No connection to docker socket!")
+        sys.exit(1)
 # Initialization
     for service in conn.services.list():
         if 'add.dns' in service.attrs['Spec']['Labels']:
