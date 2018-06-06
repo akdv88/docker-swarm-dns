@@ -29,6 +29,6 @@ $ docker service create --constraint 'node.role==manager' --mount type=bind,sour
 ```
 ### And even as a Docker Swarm Mode stack
 ```
-$ docker stack deploy -c /your-path/docker-compose.yml swarm-ddns
+$ docker stack deploy -c /Compose.yml swarm-ddns
 ```
 ###### * Tested with Bind9 and NSD DNS servers
